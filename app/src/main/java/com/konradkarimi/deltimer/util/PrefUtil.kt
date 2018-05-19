@@ -51,5 +51,17 @@ class PrefUtil {
             editor.putLong(SECONDS_REMAINING, seconds)
             editor.apply()
         }
+
+        private const val ALARM_SET_ID = "com.konradkarimi.deltimer.backgrounded_time"
+
+        fun getAlarmSetTime(context: Context): Long {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getLong(ALARM_SET_ID, 0)
+        }
+        fun setAlarmSetTime(time: Long, context: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
+            editor.putLong(ALARM_SET_ID, time)
+            editor.apply()
+        }
     }
 }
