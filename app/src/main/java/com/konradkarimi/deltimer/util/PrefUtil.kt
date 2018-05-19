@@ -6,9 +6,12 @@ import com.konradkarimi.deltimer.TimerActivity
 
 class PrefUtil {
     companion object {
+
+        private const val TIMER_LENGHT_ID = "com.konradkarimi.deltimer.timer_lenght"
+
         fun getTimerLenght(context: Context): Int {
-            //placeholder
-            return 1
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getInt(TIMER_LENGHT_ID, 10)
         }
 
         private const val PREVIOUS_LENGHT_SECONDS_ID = "com.konradkarimi.timier.previous_timer_lenght_seconds_id"
